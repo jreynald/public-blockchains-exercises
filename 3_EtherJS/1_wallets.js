@@ -39,8 +39,9 @@
 // be executed, until you tell the process to stop. 
 
 // This line will tell the process to stop.
-process.exit(0);
-console.log('I am sad line...I will not be printed to console :(');
+
+//console.log('I am sad line...I will not be printed to console :(');
+//process.exit(0);
 
 // a. Move the sad line above and below `process.exit(0);` to check that the
 // process stops where it is intended to. When you are done, comment out both
@@ -51,9 +52,14 @@ console.log('I am sad line...I will not be printed to console :(');
 // Hint: never created a function in JS? Check this page:
 // https://javascript.info/function-basics
 
-let exercise = 0;
+// let exercise = 0;
 
 // Your code here!
+
+function exit() {
+    console.log("Process stops here, Exercise " + exercise);
+    process.exit();
+}
 
 // c. Bonus. Did you realize that JavaScript/Node.JS has three different ways
 // of declaring a function?
@@ -90,7 +96,7 @@ exercise = 1;
 
 require('dotenv').config();
 
-// exit();
+exit();
 
 // Exercise 2. Create .env file.
 ////////////////////////////////
@@ -129,7 +135,17 @@ exercise = '3a';
 
 // Your code here!
 
-// exit();
+if (process.env.METAMASK_ACCOUNT_1 == "") {
+
+    console.log("VARIABLE MISSING !")
+}
+
+else (process.env.METAMASK_ACCOUNT_1 != ""); {
+
+    console.log("VARIABLE IS THERE !")
+}
+
+exit();
 
 // b. Create an array with all the names of the variables written in the .env
 // file. Then print the lenght of the array.
